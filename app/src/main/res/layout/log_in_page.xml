@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/idCloseRegistrationPageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart = "10dp"
+        android:layout_marginTop = "10dp"
+        android:src="@drawable/ic_close"
+        android:background = "@android:color/transparent"
+
+        />
+
+    <TextView
+        android:id="@+id/idLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="33dp"
+        android:layout_marginTop="106dp"
+        android:text="@string/app_name"
+        android:textSize="56sp"
+        />
+
+    <EditText
+        android:id="@+id/idLogInEmailEditField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:textSize = "35sp"
+        android:background = "@drawable/shape_rounded_variants"
+        android:hint="@string/Email_Address_Hint"
+        android:inputType="textEmailAddress"
+        />
+
+    <EditText
+        android:id="@+id/idLogInPasswordEditField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:textSize = "35sp"
+        android:background = "@drawable/shape_rounded_variants"
+        android:hint="@string/Password_Hint"
+        android:inputType="textPassword"
+        />
+
+
+    <Button
+        android:id = "@+id/idSubmitRegistrationBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="10dp"
+        android:background = "@drawable/shape_rounded_variants"
+        android:text = "@string/Log_In_Button_Text"
+        android:textSize = "35sp"
+        />
+
+</LinearLayout>

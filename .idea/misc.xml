@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/shape_rounded_variants.xml" value="0.2445" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/entry_page.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/log_in_page.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/registration_page.xml" value="0.28942718505859366" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

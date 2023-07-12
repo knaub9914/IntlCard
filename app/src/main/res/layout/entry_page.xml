@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/idLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="33dp"
+        android:layout_marginTop="256dp"
+        android:text="@string/app_name"
+        android:textSize="56sp"
+        />
+
+
+    <Button
+        android:id = "@+id/idLogInBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="10dp"
+        android:background = "@drawable/shape_rounded_variants"
+        android:text = "@string/Log_In_Button_Text"
+        android:textSize = "35sp"
+        />
+
+    <Button
+        android:id = "@+id/idSignUpBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background = "@drawable/shape_rounded_variants"
+        android:text = "@string/Sign_Up_Button_Text"
+        android:textSize = "35sp"
+        />
+
+    <TextView
+        android:id="@+id/idSkipLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="33dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/Skip_Log_In_Text"
+        android:textSize="26sp"
+        />
+
+</LinearLayout>
