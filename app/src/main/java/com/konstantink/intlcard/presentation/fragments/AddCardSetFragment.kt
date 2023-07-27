@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.konstantink.intlcard.databinding.EntryPageBinding
-import com.konstantink.intlcard.databinding.RegistrationPageBinding
+import com.konstantink.intlcard.R
+import com.konstantink.intlcard.databinding.AddCardSetPageBinding
+import com.konstantink.intlcard.databinding.CardSetsOverviewBinding
 
-class RegistrationPageFragment : Fragment() {
-    private var _binding: RegistrationPageBinding? = null
+class AddCardSetFragment: Fragment() {
+    private var _binding: AddCardSetPageBinding? = null
 
     private val binding get() = _binding!!
 
@@ -21,13 +22,13 @@ class RegistrationPageFragment : Fragment() {
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        _binding = RegistrationPageBinding.inflate(inflater, container, false)
+        _binding = AddCardSetPageBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         navController = Navigation.findNavController(view)
-        binding.idCloseRegistrationPageBtn.setOnClickListener {
+        binding.idCloseAddCarSetPage.setOnClickListener {
             navController.navigateUp()
         }
     }
@@ -36,5 +37,4 @@ class RegistrationPageFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

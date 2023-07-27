@@ -16,5 +16,18 @@
     <string name="Confirm_Password_Hint">Confirm Password</string>
     <string name="Register_Button_Text">Register</string>
 
+    <!--
+    Card Set Overview Page
+    -->
+    <string name="Add_Card_Set_Button_Text">Add Set</string>
+
+    <!--
+   Add Card Set Page
+   -->
+    <string name="Target_Hint_Text">Word/Sentence</string>
+    <string name="Translation_Hint_Text">Translation</string>
+    <string name="Context_Hint_Text">Context</string>
+    <string name="Create_Card_Set_Btn_Text">Create</string>
+
 
 </resources>

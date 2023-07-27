@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".presentation.fragments.LogInPageFragment"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ImageButton
-        android:id="@+id/idCloseRegistrationPageBtn"
+        android:id="@+id/idCloseAddCarSetPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart = "10dp"
@@ -29,7 +27,7 @@
         />
 
     <EditText
-        android:id="@+id/idLogInEmailEditField"
+        android:id="@+id/idTargetSetText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -37,12 +35,12 @@
         android:layout_marginEnd="10dp"
         android:textSize = "35sp"
         android:background = "@drawable/shape_rounded_variants"
-        android:hint="@string/Email_Address_Hint"
-        android:inputType="textEmailAddress"
+        android:hint="@string/Target_Hint_Text"
+        android:inputType="text"
         />
 
     <EditText
-        android:id="@+id/idLogInPasswordEditField"
+        android:id="@+id/idTranslationSetText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -50,20 +48,33 @@
         android:layout_marginEnd="10dp"
         android:textSize = "35sp"
         android:background = "@drawable/shape_rounded_variants"
-        android:hint="@string/Password_Hint"
-        android:inputType="textPassword"
+        android:hint="@string/Translation_Hint_Text"
+        android:inputType="text"
+        />
+
+    <EditText
+        android:id="@+id/idContextText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:textSize = "35sp"
+        android:background = "@drawable/shape_rounded_variants"
+        android:hint="@string/Context_Hint_Text"
+        android:inputType="text"
         />
 
 
     <Button
-        android:id = "@+id/idSubmitRegistrationBtn"
+        android:id = "@+id/idSubmitCardSetBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="70dp"
         android:layout_marginEnd="10dp"
         android:background = "@drawable/shape_rounded_variants"
-        android:text = "@string/Log_In_Button_Text"
+        android:text = "@string/Create_Card_Set_Btn_Text"
         android:textSize = "35sp"
         />
 
