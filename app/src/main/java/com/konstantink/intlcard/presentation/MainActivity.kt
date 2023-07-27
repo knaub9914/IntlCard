@@ -2,11 +2,17 @@ package com.konstantink.intlcard.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
+import androidx.navigation.findNavController
 import com.konstantink.intlcard.R
+import com.konstantink.intlcard.presentation.fragments.EntryPageFragment
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.entry_page)
+        setContentView(R.layout.activity_main)
+
+        }
     }
-}

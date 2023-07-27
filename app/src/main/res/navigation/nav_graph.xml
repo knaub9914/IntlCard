@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:id="@+id/nav_graph">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/EntryPageFragment">
+    <fragment
+        android:id="@+id/EntryPageFragment"
+        android:name="com.konstantink.intlcard.presentation.fragments.EntryPageFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/entry_page" >
+        <action
+            android:id="@+id/action_EntryPageFragment_to_LogInPageFragment"
+            app:destination="@id/LogInPageFragment" />
+        <action
+            android:id="@+id/action_EntryPageFragment_to_RegistrationPageFragment"
+            app:destination="@id/RegistrationPageFragment" />
+        <action
+            android:id="@+id/action_EntryPageFragment_to_CardSetsOverviewPageFragment"
+            app:destination="@id/CardSetsOverviewPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/RegistrationPageFragment"
+        android:name="com.konstantink.intlcard.presentation.fragments.RegistrationPageFragment"
+        android:label="fragment_page"
+        tools:layout="@layout/registration_page" />
+    <fragment
+        android:id="@+id/LogInPageFragment"
+        android:name="com.konstantink.intlcard.presentation.fragments.LogInPageFragment"
+        android:label="fragment_page"
+        tools:layout="@layout/log_in_page" />
+    <fragment
+        android:id="@+id/CardSetsOverviewPageFragment"
+        android:name="com.konstantink.intlcard.presentation.fragments.CardSetsOverviewFragment"
+        android:label="fragment_page"
+        tools:layout="@layout/card_sets_overview" >
+        <action
+            android:id="@+id/action_CardSetsOverviewPageFragment_to_AddCardSetFragment"
+            app:destination="@id/AddCardSetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/AddCardSetFragment"
+        android:name="com.konstantink.intlcard.presentation.fragments.AddCardSetFragment"
+        android:label="fragment_page"
+        tools:layout="@layout/add_card_set_page" />
 </navigation>
