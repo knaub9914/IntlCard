@@ -42,5 +42,5 @@
         android:id="@+id/AddCardSetFragment"
         android:name="com.konstantink.intlcard.presentation.fragments.AddCardSetFragment"
         android:label="fragment_page"
-        tools:layout="@layout/add_card_set_page" />
+        tools:layout="@layout/add_card_page" />
 </navigation>

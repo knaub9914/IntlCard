@@ -7,7 +7,13 @@ import androidx.room.PrimaryKey
 data class CardSetDbModel(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val cards: List<CardDbModel>,
-    val cardCount: Int = cards.count()
-) {
+    val cards: List<CardDbModel>?,
+    val comment: String = "",
+    val originLanguage: String = DEFAULT_LANGUAGE,
+    val targetLanguage: String = DEFAULT_LANGUAGE,
+
+    ) {
+    companion object {
+        val DEFAULT_LANGUAGE: String = "English"
+    }
 }
