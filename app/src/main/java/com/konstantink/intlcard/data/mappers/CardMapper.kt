@@ -10,14 +10,18 @@ object CardMapper: IntlCardMapper<CardDbModel, Card> {
         id = card.id,
         origin = card.origin,
         translation = card.translation,
-        context = card.context
+        context = card.context,
+        targetLanguage = card.targetLanguage,
+        sourceLanguage = card.sourceLanguage
     )
 
     override fun mapDbModelToEntity(cardDbModel: CardDbModel) = Card(
         id = cardDbModel.id,
         origin = cardDbModel.origin,
         translation = cardDbModel.translation,
-        context = cardDbModel.context
+        context = cardDbModel.context,
+        targetLanguage = cardDbModel.targetLanguage,
+        sourceLanguage = cardDbModel.sourceLanguage
     )
 
     override fun mapListDbModelToListEntity(dbModelList: List<CardDbModel>)  = dbModelList.map {

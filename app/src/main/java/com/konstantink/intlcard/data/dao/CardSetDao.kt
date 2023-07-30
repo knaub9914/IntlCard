@@ -18,7 +18,7 @@ interface CardSetDao {
         fun addCardSet(cardSetDbModel: CardSetDbModel)
 
         @Query("DELETE FROM card_sets WHERE id=:cardSetId")
-        fun deleteCard(cardSetId: Int)
+        fun deleteCardSet(cardSetId: Int)
 
         @Query("SELECT * FROM card_sets WHERE id=:cardSetId LIMIT 1")
         fun getCardSet(cardSetId: Int): CardSetDbModel

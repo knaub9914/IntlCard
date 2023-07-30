@@ -4,12 +4,19 @@ import android.app.Application
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.konstantink.intlcard.data.converters.CardConverter
+import com.konstantink.intlcard.data.dao.CardDao
+import com.konstantink.intlcard.data.dao.CardSetDao
 import com.konstantink.intlcard.data.dbModels.CardDbModel
 import com.konstantink.intlcard.data.dbModels.CardSetDbModel
 
 @Database(entities = [CardDbModel::class, CardSetDbModel::class], version = 1, exportSchema = false)
+@TypeConverters(CardConverter::class)
 abstract class AppDatabase: RoomDatabase() {
 
+    abstract fun cardDao(): CardDao
+    abstract fun cardSetDao(): CardSetDao
 
     companion object {
 
@@ -29,7 +36,7 @@ abstract class AppDatabase: RoomDatabase() {
                     application,
                     AppDatabase::class.java,
                     DB_NAME
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = db
                 return db
             }

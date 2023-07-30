@@ -26,8 +26,19 @@
    -->
     <string name="Target_Hint_Text">Word/Sentence</string>
     <string name="Translation_Hint_Text">Translation</string>
-    <string name="Context_Hint_Text">Context</string>
+    <string name="Comment_Hint_Text">Comment</string>
     <string name="Create_Card_Set_Btn_Text">Create</string>
 
+    <!--
+    Languages array for spinner
+    -->
+    <string-array name="languages_array">
+        <item>English</item>
+        <item>Russian</item>
+        <item>Portuguese</item>
+        <item>Spanish</item>
+        <item>French</item>
+        <item>Mandarin</item>
+    </string-array>
 
 </resources>
