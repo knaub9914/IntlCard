@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/idCloseAddCarSetPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart = "10dp"
+        android:layout_marginTop = "10dp"
+        android:src="@drawable/ic_close"
+        android:background = "@android:color/transparent"
+
+        />
+
+    <TextView
+        android:id="@+id/idLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="33dp"
+        android:layout_marginTop="106dp"
+        android:text="@string/app_name"
+        android:textSize="56sp"
+        />
+
+    <EditText
+        android:id="@+id/idTargetSetText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:textSize = "35sp"
+        android:background = "@drawable/shape_rounded_variants"
+        android:hint="@string/Target_Hint_Text"
+        android:inputType="text"
+        />
+
+    <EditText
+        android:id="@+id/idTranslationSetText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:textSize = "35sp"
+        android:background = "@drawable/shape_rounded_variants"
+        android:hint="@string/Translation_Hint_Text"
+        android:inputType="text"
+        />
+
+    <EditText
+        android:id="@+id/idContextText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:textSize = "35sp"
+        android:background = "@drawable/shape_rounded_variants"
+        android:hint="@string/Context_Hint_Text"
+        android:inputType="text"
+        />
+
+
+    <Button
+        android:id = "@+id/idSubmitCardSetBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="10dp"
+        android:background = "@drawable/shape_rounded_variants"
+        android:text = "@string/Create_Card_Set_Btn_Text"
+        android:textSize = "35sp"
+        />
+
+</LinearLayout>
