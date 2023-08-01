@@ -5,7 +5,7 @@ import com.konstantink.intlcard.domain.repositories.CardRepository
 
 class CreateCardSetUseCase(private val repository: CardRepository) {
 
-    fun createCardSet(cardSet: CardSet) {
+    suspend fun createCardSet(cardSet: CardSet) {
         repository.createCardSet(cardSet)
     }
 }

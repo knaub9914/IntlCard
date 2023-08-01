@@ -23,7 +23,6 @@ class CardSetViewModel(application: Application): AndroidViewModel(application) 
     private val getCardSetListUseCase = GetCardSetListUseCase(repository)
 
     private val _cardSetList = MutableLiveData<List<CardSet>>()
-    private val scope = CoroutineScope(Dispatchers.IO)
     val cardSetList: LiveData<List<CardSet>>
         get() = _cardSetList
     fun getCardSetList() {
@@ -39,7 +38,7 @@ class CardSetViewModel(application: Application): AndroidViewModel(application) 
              originLanguage = originLanguage, targetLanguage = targetLanguage,
             comment = comment)
 
-        scope.launch {
+        viewModelScope.launch() {
             createCardSetUseCase.createCardSet(cardSet)
         }
     }

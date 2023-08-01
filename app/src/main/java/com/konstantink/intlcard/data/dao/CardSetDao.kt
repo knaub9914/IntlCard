@@ -15,10 +15,10 @@ interface CardSetDao {
         fun getCardSetList(): LiveData<List<CardSetDbModel>>
 
         @Insert(onConflict = OnConflictStrategy.REPLACE)
-        fun addCardSet(cardSetDbModel: CardSetDbModel)
+        suspend fun addCardSet(cardSetDbModel: CardSetDbModel)
 
         @Query("DELETE FROM card_sets WHERE id=:cardSetId")
-        fun deleteCardSet(cardSetId: Int)
+        suspend fun deleteCardSet(cardSetId: Int)
 
         @Query("SELECT * FROM card_sets WHERE id=:cardSetId LIMIT 1")
         fun getCardSet(cardSetId: Int): CardSetDbModel
