@@ -10,20 +10,20 @@ interface CardRepository {
 
     fun getCardSet(cardSetId: Int) : CardSet
 
-    fun createCardSet(cardSet: CardSet)
+    suspend fun createCardSet(cardSet: CardSet)
 
-    fun updateCardSet(cardSet: CardSet)
+    suspend fun updateCardSet(cardSet: CardSet)
 
-    fun deleteCardSet(cardSetId: Int)
+    suspend fun deleteCardSet(cardSetId: Int)
 
     fun getCards() : LiveData<List<Card>>
 
     fun getCard(cardId: Int) : Card
 
-    fun createCard(card: Card)
+    suspend fun createCard(card: Card)
 
-    fun updateCard(card: Card)
+    suspend fun updateCard(card: Card)
 
-    fun deleteCard(cardId: Int)
+    suspend fun deleteCard(cardId: Int)
 
 }
