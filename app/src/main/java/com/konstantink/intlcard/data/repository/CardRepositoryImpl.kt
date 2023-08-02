@@ -1,6 +1,7 @@
 package com.konstantink.intlcard.data.repository
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.Transformations
@@ -15,10 +16,13 @@ class CardRepositoryImpl(application: Application): CardRepository {
 
     private val cardDao = AppDatabase.getInstance(application).cardDao()
     private val cardSetDao = AppDatabase.getInstance(application).cardSetDao()
-    override fun getCardSets(): LiveData<List<CardSet>> = Transformations.map(
+    override fun getCardSets(): LiveData<List<CardSet>> =
+        Transformations.map(
         cardSetDao.getCardSetList()){
         CardSetMapper.mapListDbModelToListEntity(it)
     }
+
+
 
      override  fun getCardSet(cardSetId: Int): CardSet {
         val dbModel = cardSetDao.getCardSet(cardSetId)
