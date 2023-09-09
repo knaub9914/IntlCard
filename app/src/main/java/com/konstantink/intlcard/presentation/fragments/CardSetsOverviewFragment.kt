@@ -1,9 +1,11 @@
 package com.konstantink.intlcard.presentation.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -38,19 +40,26 @@ class CardSetsOverviewFragment: Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         navController = Navigation.findNavController(view)
         binding.idAddCardSetButton.setOnClickListener {
-         navController.navigate(R.id.action_CardSetsOverviewPageFragment_to_AddCardSetFragment)
+            navController.navigate(R.id.action_CardSetsOverviewPageFragment_to_AddCardSetFragment)
 
         }
-        val adapter = CardSetAdapter(requireActivity())
+        val adapter = CardSetAdapter(requireActivity(), longListener =  { item ->
+            viewModel.deleteCardSet(item.id)
+            true
+        },
+            listener = {})
         binding.rvCardSetList.adapter = adapter
-        viewModel.cardSetList.observe(viewLifecycleOwner){
+        viewModel.cardSetList.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
 
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }

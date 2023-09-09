@@ -16,7 +16,7 @@ interface CardRepository {
 
     suspend fun deleteCardSet(cardSetId: Int)
 
-    fun getCards() : LiveData<List<Card>>
+    fun getCards(cardSetId: Int) : LiveData<List<Card>>
 
     fun getCard(cardId: Int) : Card
 

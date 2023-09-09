@@ -11,7 +11,7 @@ import com.konstantink.intlcard.data.dao.CardSetDao
 import com.konstantink.intlcard.data.dbModels.CardDbModel
 import com.konstantink.intlcard.data.dbModels.CardSetDbModel
 
-@Database(entities = [CardDbModel::class, CardSetDbModel::class], version = 1, exportSchema = false)
+@Database(entities = [CardDbModel::class, CardSetDbModel::class], version = 3, exportSchema = false)
 @TypeConverters(CardConverter::class)
 abstract class AppDatabase: RoomDatabase() {
 

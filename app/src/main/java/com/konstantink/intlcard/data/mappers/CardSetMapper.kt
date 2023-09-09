@@ -6,7 +6,6 @@ import com.konstantink.intlcard.domain.entities.CardSet
 object CardSetMapper: IntlCardMapper<CardSetDbModel, CardSet> {
     override fun mapEntityToDbModel(entity: CardSet) = CardSetDbModel (
         id = entity.id,
-        cards = entity.cards?.map { CardMapper.mapEntityToDbModel(it) },
         targetLanguage = entity.targetLanguage,
         originLanguage = entity.originLanguage,
         comment = entity.comment
@@ -16,7 +15,6 @@ object CardSetMapper: IntlCardMapper<CardSetDbModel, CardSet> {
 
     override fun mapDbModelToEntity(dbModel: CardSetDbModel) = CardSet (
         id = dbModel.id,
-        cards = dbModel.cards?.map { CardMapper.mapDbModelToEntity(it)},
         targetLanguage = dbModel.targetLanguage,
         originLanguage = dbModel.originLanguage,
         comment = dbModel.comment

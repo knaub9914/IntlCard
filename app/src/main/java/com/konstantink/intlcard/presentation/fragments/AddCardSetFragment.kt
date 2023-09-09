@@ -41,19 +41,27 @@ class AddCardSetFragment: Fragment() {
             R.array.languages_array,
             android.R.layout.simple_spinner_item
         )
+
         binding.spinnerTarget.adapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.languages_array,
             android.R.layout.simple_spinner_item
         )
+
         binding.idCloseAddCarSetPage.setOnClickListener {
             navController.navigateUp()
         }
-        binding.idSubmitCardSetBtn.setOnClickListener{
+
+        binding.idSubmitCardSetBtn.setOnClickListener {
             viewModel.createCardSet(
                 binding.spinnerOrigin.selectedItem.toString(),
                 binding.spinnerTarget.selectedItem.toString(),
-                binding.idContextText.text.toString())
+                binding.idContextText.text.toString()
+            )
+
+            if (viewModel.shouldScreenClose.value == true) {
+                navController.navigateUp()
+            }
         }
     }
 
@@ -61,4 +69,5 @@ class AddCardSetFragment: Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

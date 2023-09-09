@@ -43,8 +43,8 @@ class CardRepositoryImpl(application: Application): CardRepository {
         cardSetDao.deleteCardSet(cardSetInt)
     }
 
-    override fun getCards(): LiveData<List<Card>>  = Transformations.map(
-    cardDao.getCardList()){
+    override fun getCards(cardSetId: Int): LiveData<List<Card>>  = Transformations.map(
+    cardDao.getCardList(cardSetId)){
         CardMapper.mapListDbModelToListEntity(it)
     }
     override fun getCard(cardId: Int): Card {

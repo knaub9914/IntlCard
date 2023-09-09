@@ -10,6 +10,7 @@ import kotlinx.serialization.Serializable
 data class CardDbModel(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
+    val cardSetId: Int?,
     val origin: String = "",
     val translation: String = "",
     val targetLanguage: String = DEFAULT_LANGUAGE,

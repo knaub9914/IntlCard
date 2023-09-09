@@ -5,6 +5,7 @@ import java.util.*
 
 data class Card(
     var id: Int = DEFAULT_ID,
+    val cardSetId: Int?,
     val origin: String = "",
     val translation: String = "",
     val targetLanguage: String = CardDbModel.DEFAULT_LANGUAGE,

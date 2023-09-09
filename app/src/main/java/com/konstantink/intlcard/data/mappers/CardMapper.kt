@@ -8,6 +8,7 @@ object CardMapper: IntlCardMapper<CardDbModel, Card> {
 
     override fun mapEntityToDbModel(card: Card) = CardDbModel(
         id = card.id,
+        cardSetId = card.cardSetId,
         origin = card.origin,
         translation = card.translation,
         context = card.context,
@@ -17,6 +18,7 @@ object CardMapper: IntlCardMapper<CardDbModel, Card> {
 
     override fun mapDbModelToEntity(cardDbModel: CardDbModel) = Card(
         id = cardDbModel.id,
+        cardSetId = cardDbModel.cardSetId,
         origin = cardDbModel.origin,
         translation = cardDbModel.translation,
         context = cardDbModel.context,

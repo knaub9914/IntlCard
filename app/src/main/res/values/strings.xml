@@ -21,6 +21,12 @@
     -->
     <string name="Add_Card_Set_Button_Text">Add Set</string>
 
+
+    <!--
+    Cards Overview Page
+    -->
+    <string name="Add_Card_Button_Text">Add Set</string>
+
     <!--
    Add Card Set Page
    -->

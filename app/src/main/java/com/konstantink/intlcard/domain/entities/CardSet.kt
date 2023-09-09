@@ -6,7 +6,6 @@ import java.util.*
 
 data class CardSet(
     var id: Int = DEFAULT_ID,
-    val cards: List<Card>? = DEFAULT_CARD_LIST,
     val comment: String = "",
     val originLanguage: String = DEFAULT_LANGUAGE,
     val targetLanguage: String = DEFAULT_LANGUAGE,
@@ -16,6 +15,5 @@ data class CardSet(
     companion object {
         const val DEFAULT_ID: Int = 0
         val DEFAULT_LANGUAGE: String = "English"
-        val DEFAULT_CARD_LIST = listOf<Card>()
     }
 }
