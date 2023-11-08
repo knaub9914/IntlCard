@@ -8,6 +8,5 @@ import com.konstantink.intlcard.domain.usecases.AddCardUseCase
 class CardViewModel(application: Application): AndroidViewModel(application) {
 
     private val repository = CardRepositoryImpl(application)
-
     private val addCardUseCase =  AddCardUseCase(repository)
 }

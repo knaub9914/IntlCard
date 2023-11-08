@@ -61,6 +61,10 @@ class CardSetViewModel(application: Application) : AndroidViewModel(application)
 
     }
 
+    fun setCurrentCardSet(cardSet: CardSet) {
+        _currentCardSet.value = cardSet
+    }
+
     fun accessCardSet(cardSet: CardSet){
         _currentCardSet.value = cardSet
     }

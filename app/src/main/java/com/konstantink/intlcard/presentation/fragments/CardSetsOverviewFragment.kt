@@ -47,7 +47,10 @@ class CardSetsOverviewFragment: Fragment() {
             viewModel.deleteCardSet(item.id)
             true
         },
-            listener = {})
+            listener = {
+                viewModel.setCurrentCardSet(it)
+                navController.navigate(R.id.action_CardSetsOverviewPageFragment_to_cardsOverviewFragment)
+            })
         binding.rvCardSetList.adapter = adapter
         viewModel.cardSetList.observe(viewLifecycleOwner) {
             adapter.submitList(it)
