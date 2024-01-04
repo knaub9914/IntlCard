@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.konstantink.intlcard.domain.entities.Card
 import com.konstantink.intlcard.domain.entities.CardSet
 
-interface CardRepository {
+interface CardSetRepository {
 
     fun getCardSets() : LiveData<List<CardSet>>
 
@@ -16,7 +16,7 @@ interface CardRepository {
 
     suspend fun deleteCardSet(cardSetId: Int)
 
-    fun getCards(cardSetId: Int) : LiveData<List<Card>>
+    fun getCards() : LiveData<List<Card>>
 
     fun getCard(cardId: Int) : Card
 

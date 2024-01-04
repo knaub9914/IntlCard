@@ -10,8 +10,8 @@ import com.konstantink.intlcard.data.dbModels.CardDbModel
 @Dao
 interface CardDao {
 
-    @Query("SELECT * FROM cards where cardSetId = :value")
-    fun getCardList(value: Int): LiveData<List<CardDbModel>>
+    @Query("SELECT * FROM cards")
+    fun getCardList(): LiveData<List<CardDbModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addCard(cardDbModel: CardDbModel)

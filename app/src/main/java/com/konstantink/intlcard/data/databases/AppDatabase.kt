@@ -1,6 +1,7 @@
 package com.konstantink.intlcard.data.databases
 
 import android.app.Application
+import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -11,7 +12,7 @@ import com.konstantink.intlcard.data.dao.CardSetDao
 import com.konstantink.intlcard.data.dbModels.CardDbModel
 import com.konstantink.intlcard.data.dbModels.CardSetDbModel
 
-@Database(entities = [CardDbModel::class, CardSetDbModel::class], version = 3, exportSchema = false)
+@Database(entities = [CardDbModel::class, CardSetDbModel::class], version = 4, exportSchema = false)
 @TypeConverters(CardConverter::class)
 abstract class AppDatabase: RoomDatabase() {
 
@@ -24,7 +25,7 @@ abstract class AppDatabase: RoomDatabase() {
         private val LOCK = Any()
         private const val DB_NAME = "card.db"
 
-        fun getInstance(application: Application): AppDatabase {
+        fun getInstance(application: Context): AppDatabase {
             INSTANCE?.let {
                 return it
             }

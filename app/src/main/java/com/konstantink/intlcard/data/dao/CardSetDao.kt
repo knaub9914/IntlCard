@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.konstantink.intlcard.data.dbModels.CardDbModel
 import com.konstantink.intlcard.data.dbModels.CardSetDbModel
 
@@ -15,11 +16,14 @@ interface CardSetDao {
         fun getCardSetList(): LiveData<List<CardSetDbModel>>
 
         @Insert(onConflict = OnConflictStrategy.REPLACE)
-        suspend fun addCardSet(cardSetDbModel: CardSetDbModel)
+        fun addCardSet(cardSetDbModel: CardSetDbModel)
 
         @Query("DELETE FROM card_sets WHERE id=:cardSetId")
-        suspend fun deleteCardSet(cardSetId: Int)
+        fun deleteCardSet(cardSetId: Int)
 
         @Query("SELECT * FROM card_sets WHERE id=:cardSetId LIMIT 1")
         fun getCardSet(cardSetId: Int): CardSetDbModel
+
+        @Update
+        fun updateCardSet(cardSetDbModel: CardSetDbModel)
     }

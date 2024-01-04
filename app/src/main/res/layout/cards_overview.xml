@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="10">
+        >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCardList"
@@ -16,17 +16,27 @@
             android:layout_weight="9"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/idAddCardButton"
-            tools:listitem="@layout/card_set" />
+            tools:listitem="@layout/card" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
         <Button
             android:id="@+id/idAddCardButton"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:layout_weight="1"
             android:text="@string/Add_Card_Button_Text"
             android:textSize="20sp" />
 
+            <Button
+                android:id="@+id/idLearnButton"
+                android:layout_width="150dp"
+                android:layout_marginLeft="30sp"
+                android:layout_height="match_parent"
+                android:text="@string/Learn_Button_Text"
+                android:textSize="20sp" />
+        </LinearLayout>
     </LinearLayout>
 </layout>

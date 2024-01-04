@@ -1,21 +1,21 @@
 package com.konstantink.intlcard.data.repository
 
-import android.app.Application
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.Transformations
 import com.konstantink.intlcard.data.databases.AppDatabase
 import com.konstantink.intlcard.data.mappers.CardMapper
 import com.konstantink.intlcard.data.mappers.CardSetMapper
 import com.konstantink.intlcard.domain.entities.Card
 import com.konstantink.intlcard.domain.entities.CardSet
-import com.konstantink.intlcard.domain.repositories.CardRepository
+import com.konstantink.intlcard.domain.repositories.CardSetRepository
+import kotlinx.coroutines.flow.Flow
 
-class CardRepositoryImpl(application: Application): CardRepository {
+class CardSetRepositoryImpl(context: Context): CardSetRepository {
 
-    private val cardDao = AppDatabase.getInstance(application).cardDao()
-    private val cardSetDao = AppDatabase.getInstance(application).cardSetDao()
+    private val cardDao = AppDatabase.getInstance(context).cardDao()
+    private val cardSetDao = AppDatabase.getInstance(context).cardSetDao()
     override fun getCardSets(): LiveData<List<CardSet>> =
         Transformations.map(
         cardSetDao.getCardSetList()){
@@ -36,15 +36,15 @@ class CardRepositoryImpl(application: Application): CardRepository {
 
     override suspend fun updateCardSet(cardSet: CardSet) {
         val dbModel = CardSetMapper.mapEntityToDbModel(cardSet)
-        cardSetDao.addCardSet(dbModel)
+        cardSetDao.updateCardSet(dbModel)
     }
 
     override suspend fun deleteCardSet(cardSetInt: Int) {
         cardSetDao.deleteCardSet(cardSetInt)
     }
 
-    override fun getCards(cardSetId: Int): LiveData<List<Card>>  = Transformations.map(
-    cardDao.getCardList(cardSetId)){
+    override fun getCards(): LiveData<List<Card>> = Transformations.map(
+        cardDao.getCardList()) {
         CardMapper.mapListDbModelToListEntity(it)
     }
     override fun getCard(cardId: Int): Card {

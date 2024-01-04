@@ -25,7 +25,8 @@
     <!--
     Cards Overview Page
     -->
-    <string name="Add_Card_Button_Text">Add Set</string>
+    <string name="Add_Card_Button_Text">Add Card</string>
+    <string name="Learn_Button_Text">Learn</string>
 
     <!--
    Add Card Set Page

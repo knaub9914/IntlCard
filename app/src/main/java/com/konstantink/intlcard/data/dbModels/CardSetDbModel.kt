@@ -10,9 +10,10 @@ data class CardSetDbModel(
     val comment: String = "",
     val originLanguage: String = DEFAULT_LANGUAGE,
     val targetLanguage: String = DEFAULT_LANGUAGE,
+    val isActiveCardSet: Int = 0
 
     ) {
     companion object {
-        val DEFAULT_LANGUAGE: String = "English"
+        const val DEFAULT_LANGUAGE: String = "English"
     }
 }

@@ -9,7 +9,7 @@ data class CardSet(
     val comment: String = "",
     val originLanguage: String = DEFAULT_LANGUAGE,
     val targetLanguage: String = DEFAULT_LANGUAGE,
-
+    var isActiveCardSet: Int = 0
     ) {
 
     companion object {

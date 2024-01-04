@@ -1,77 +1,115 @@
 package com.konstantink.intlcard.presentation.viewmodels
 
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.konstantink.intlcard.data.repository.CardRepositoryImpl
 import com.konstantink.intlcard.domain.entities.Card
 import com.konstantink.intlcard.domain.entities.CardSet
+import com.konstantink.intlcard.domain.repositories.CardSetRepository
 import com.konstantink.intlcard.domain.usecases.CreateCardSetUseCase
+import com.konstantink.intlcard.domain.usecases.CreateCardUseCase
 import com.konstantink.intlcard.domain.usecases.DeleteCardSetUseCase
 import com.konstantink.intlcard.domain.usecases.GetCardSetListUseCase
 import com.konstantink.intlcard.domain.usecases.GetCardsUseCase
-import kotlinx.coroutines.CoroutineScope
+import com.konstantink.intlcard.domain.usecases.UpdateCardSetUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CardSetViewModel(application: Application) : AndroidViewModel(application) {
+class CardSetViewModel @Inject constructor(private val
+    cardSetRepository: CardSetRepository) : ViewModel(){
+    private val createCardSetUseCase = CreateCardSetUseCase(cardSetRepository)
+    private val createCardUseCase = CreateCardUseCase(cardSetRepository)
+    private val deleteCardSetUseCase = DeleteCardSetUseCase(cardSetRepository)
+    private val updateCardSetUseCase = UpdateCardSetUseCase(cardSetRepository)
+    private val getCardsUseCase = GetCardsUseCase(cardSetRepository)
+    val cardSetList: LiveData<List<CardSet>> by lazy {
+        GetCardSetListUseCase(cardSetRepository).getCardSetList()
+    }
 
-    private val repository = CardRepositoryImpl(application)
+    private val _cardList = MutableLiveData<List<Card>>()
+    val cardList: LiveData<List<Card>> by lazy {
+        GetCardsUseCase(cardSetRepository).getCards()
+    }
 
-    private val createCardSetUseCase = CreateCardSetUseCase(repository)
-    private val getCardSetListUseCase = GetCardSetListUseCase(repository)
-    private val deleteCardSetUseCase = DeleteCardSetUseCase(repository)
 
 
-    private val _cardSetList = getCardSetListUseCase.getCardSetList()
-    val cardSetList: LiveData<List<CardSet>>
-        get() = _cardSetList
 
     private val _shouldScreenClose = MutableLiveData<Boolean>()
-    val shouldScreenClose : LiveData<Boolean>
+    val shouldScreenClose: LiveData<Boolean>
+
         get() = _shouldScreenClose
 
-    private val _currentCardSet = MutableLiveData<CardSet>()
-    val currentCardSet : LiveData<CardSet>
-        get() = _currentCardSet
+    var currentCardSet : CardSet? = CardSet()
 
 
     fun createCardSet(originLanguage: String, targetLanguage: String, comment: String) {
-
         startWork()
         val cardSet = CardSet(
-            originLanguage = originLanguage, targetLanguage = targetLanguage,
+            originLanguage = originLanguage,
+            targetLanguage = targetLanguage,
             comment = comment
         )
 
-        viewModelScope.launch() {
+        viewModelScope.launch(Dispatchers.IO) {
             createCardSetUseCase.createCardSet(cardSet)
+            finishWork()
         }
-        finishWork()
     }
 
-    fun deleteCardSet(cardSetId: Int){
+    fun deleteCardSet(cardSetId: Int) {
         viewModelScope.launch {
             deleteCardSetUseCase.deleteCardSet(cardSetId)
         }
-
     }
 
-    fun accessCardSet(cardSet: CardSet){
-        _currentCardSet.value = cardSet
+
+
+    fun setActiveCardSet(cardSet: CardSet) {
+        currentCardSet = cardSet
+    }
+
+    fun getCards() {
+        println(_cardList.value)
+        Log.d("VM", "Current Card value us ${_cardList.value}")
+    }
+
+    fun clearCurrentCardSet() {
+        currentCardSet = null
+    }
+
+    fun createCard(word : String, translation : String, context: String) {
+        val card =
+            Card(
+                cardSetId = currentCardSet?.id,
+                origin = word,
+                translation = translation,
+                targetLanguage = "English",
+                sourceLanguage = "Russian",
+                context = context
+            )
+            if (card != null) {
+                viewModelScope.launch(Dispatchers.IO) {
+                    createCardUseCase.createCard(card)
+                }
+            }
+
+
     }
 
     private fun finishWork() {
-        _shouldScreenClose.value = true
+        _shouldScreenClose.postValue(true)
     }
-
 
     private fun startWork() {
         _shouldScreenClose.value = false
     }
+
+    override fun onCleared() {
+        super.onCleared()
+    }
+
 
 }

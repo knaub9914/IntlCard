@@ -1,4 +1,4 @@
-package com.konstantink.intlcard.presentation.adapters
+package com.konstantink.intlcard.presentation.adapters.cardset
 
 import android.content.Context
 import android.view.LayoutInflater

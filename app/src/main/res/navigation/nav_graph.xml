@@ -37,10 +37,28 @@
         <action
             android:id="@+id/action_CardSetsOverviewPageFragment_to_AddCardSetFragment"
             app:destination="@id/AddCardSetFragment" />
+        <action
+            android:id="@+id/action_CardSetsOverviewPageFragment_to_CardsOverviewFragment"
+            app:destination="@id/CardsOverviewFragment" />
     </fragment>
     <fragment
         android:id="@+id/AddCardSetFragment"
         android:name="com.konstantink.intlcard.presentation.fragments.AddCardSetFragment"
         android:label="fragment_page"
         tools:layout="@layout/add_card_page" />
+    <fragment
+        android:id="@+id/CardsOverviewFragment"
+        android:name="com.konstantink.intlcard.presentation.fragments.CardsOverviewFragment"
+        android:label="fragment_page"
+        tools:layout="@layout/cards_overview" >
+        <action
+            android:id="@+id/action_CardsOverviewFragment_to_AddCardFragment"
+            app:destination="@id/AddCardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/AddCardFragment"
+        android:name="com.konstantink.intlcard.presentation.fragments.AddCardFragment"
+        android:label="fragment_page"
+        tools:layout="@layout/add_card_page" >
+    </fragment>
 </navigation>
